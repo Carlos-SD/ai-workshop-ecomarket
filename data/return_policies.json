@@ -1,0 +1,96 @@
+{
+  "returnable_products": [
+    {
+      "name": "Reusable bamboo water bottle",
+      "category": "Kitchen & Dining",
+      "returnable": true,
+      "return_period_days": 30,
+      "conditions": "Product unused, in original packaging"
+    },
+    {
+      "name": "Organic cotton tote bag",
+      "category": "Accessories",
+      "returnable": true,
+      "return_period_days": 30,
+      "conditions": "No signs of use"
+    },
+    {
+      "name": "Bamboo toothbrush",
+      "category": "Personal Hygiene",
+      "returnable": false,
+      "reason": "Personal hygiene items cannot be returned due to health and safety regulations"
+    },
+    {
+      "name": "Natural solid shampoo bar",
+      "category": "Personal Care",
+      "returnable": false,
+      "reason": "Cosmetic products cannot be returned once opened"
+    },
+    {
+      "name": "Solid conditioner bar",
+      "category": "Personal Care",
+      "returnable": false,
+      "reason": "Cosmetic products cannot be returned once opened"
+    },
+    {
+      "name": "Stainless steel cutlery set",
+      "category": "Kitchen & Dining",
+      "returnable": true,
+      "return_period_days": 30,
+      "conditions": "Sealed packaging, unused"
+    },
+    {
+      "name": "Small home composter",
+      "category": "Home & Garden",
+      "returnable": true,
+      "return_period_days": 45,
+      "conditions": "No signs of use, with all included accessories"
+    },
+    {
+      "name": "Natural soap",
+      "category": "Personal Hygiene",
+      "returnable": false,
+      "reason": "Perishable and personal hygiene product"
+    },
+    {
+      "name": "Natural deodorant",
+      "category": "Personal Hygiene",
+      "returnable": false,
+      "reason": "Personal hygiene items cannot be returned"
+    },
+    {
+      "name": "Portable solar panels",
+      "category": "Electronics",
+      "returnable": true,
+      "return_period_days": 30,
+      "conditions": "Original packaging, with manufacturer's warranty"
+    },
+    {
+      "name": "Activated carbon water filter",
+      "category": "Home & Kitchen",
+      "returnable": true,
+      "return_period_days": 15,
+      "conditions": "Unused, sealed packaging"
+    },
+    {
+      "name": "Glass containers",
+      "category": "Storage",
+      "returnable": true,
+      "return_period_days": 30,
+      "conditions": "No breakage, original packaging"
+    },
+    {
+      "name": "Bamboo towels",
+      "category": "Textiles",
+      "returnable": true,
+      "return_period_days": 30,
+      "conditions": "Unwashed, original tags attached"
+    },
+    {
+      "name": "Natural sponges",
+      "category": "Cleaning",
+      "returnable": false,
+      "reason": "Cleaning products cannot be returned for hygiene reasons"
+    }
+  ]
+}
