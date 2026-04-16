@@ -31,7 +31,14 @@ ai-workshop-ecomarket/
 
 ## Setup
 
-### Step 1: Create a Virtual Environment
+### Step 1: Clone the Repository
+
+```bash
+git clone https://github.com/yourusername/ai-workshop-ecomarket.git
+cd ai-workshop-ecomarket
+```
+
+### Step 2: Create a Virtual Environment
 
 Using a virtual environment keeps your project dependencies isolated from your system Python.
 
@@ -49,7 +56,7 @@ venv\Scripts\activate
 
 When activated, you'll see `(venv)` at the start of your terminal prompt.
 
-### Step 2: Install Dependencies
+### Step 3: Install Dependencies
 
 With your virtual environment activated:
 
@@ -61,7 +68,7 @@ This installs:
 - `google-generativeai>=0.3.0` - Google Gemini API client
 - `python-dotenv>=1.0.0` - Loads environment variables from .env file
 
-### Step 3: Get Your Google Gemini API Key
+### Step 4: Get Your Google Gemini API Key
 
 1. Go to [Google AI Studio](https://makersuite.google.com/app/apikey)
 2. Sign in with your Google account
@@ -70,7 +77,7 @@ This installs:
 
 **Note:** The API is completely free. No credit card required.
 
-### Step 4: Configure Your API Key
+### Step 5: Configure Your API Key
 
 You need to create a `.env` file with your API key. There are two ways to do this:
 
@@ -83,6 +90,19 @@ Then open `.env` in your text editor and replace the placeholder:
 ```
 GOOGLE_API_KEY=your-actual-api-key-here
 ```
+
+**Option B: Create .env from scratch**
+```bash
+echo "GOOGLE_API_KEY=your-actual-api-key-here" > .env
+```
+
+Replace `your-actual-api-key-here` with your real API key.
+
+**Important Security Notes:**
+- Never commit your `.env` file to git (it's already in `.gitignore`)
+- Never share your API key publicly
+- The `.env.example` file is a template only - it doesn't contain the real key
+
 ---
 
 ## Usage
