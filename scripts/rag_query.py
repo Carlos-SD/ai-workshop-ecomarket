@@ -1,18 +1,3 @@
-"""
-Main RAG system script for EcoMarket customer service.
-
-This script:
-1. Receives a customer question in Spanish
-2. Searches for relevant chunks in the knowledge base (ChromaDB)
-3. Checks retrieval quality (fallback layer 1)
-4. Builds an augmented prompt with the retrieved context
-5. Calls Gemini to generate a grounded response
-6. Applies fallback if the system lacks sufficient information
-
-Run build_knowledge_base.py before using this script:
-  python scripts/build_knowledge_base.py
-"""
-
 import os
 import sys
 from pathlib import Path
