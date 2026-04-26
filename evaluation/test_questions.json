@@ -1,0 +1,180 @@
+{
+  "description": "Conjunto de preguntas de prueba para evaluar el sistema RAG de EcoMarket. Incluye preguntas que el sistema DEBE poder responder (con expected_sources) y preguntas fuera de alcance que DEBEN activar el fallback (should_fallback: true).",
+  "questions": [
+    {
+      "id": "q01",
+      "category": "envios",
+      "question": "¿Cuánto tarda el envío a Bogotá?",
+      "expected_sources": ["shipping_policy", "faqs"],
+      "should_fallback": false
+    },
+    {
+      "id": "q02",
+      "category": "envios",
+      "question": "¿Hacen envíos a Estados Unidos?",
+      "expected_sources": ["shipping_policy", "faqs"],
+      "should_fallback": false
+    },
+    {
+      "id": "q03",
+      "category": "envios",
+      "question": "¿Cuál es el costo del envío a Medellín?",
+      "expected_sources": ["shipping_policy"],
+      "should_fallback": false
+    },
+    {
+      "id": "q04",
+      "category": "envios",
+      "question": "Mi envío es a un pueblo pequeño en Boyacá, ¿cuánto se demora?",
+      "expected_sources": ["shipping_policy"],
+      "should_fallback": false
+    },
+    {
+      "id": "q05",
+      "category": "devoluciones",
+      "question": "¿Puedo devolver un cepillo de dientes de bambú?",
+      "expected_sources": ["return_policies"],
+      "should_fallback": false
+    },
+    {
+      "id": "q06",
+      "category": "devoluciones",
+      "question": "¿Cuál es el plazo para devolver una botella de agua?",
+      "expected_sources": ["return_policies"],
+      "should_fallback": false
+    },
+    {
+      "id": "q07",
+      "category": "devoluciones",
+      "question": "¿Cuánto tiempo tengo para devolver el compostador?",
+      "expected_sources": ["return_policies"],
+      "should_fallback": false
+    },
+    {
+      "id": "q08",
+      "category": "devoluciones",
+      "question": "¿Quién paga el envío si quiero devolver un producto?",
+      "expected_sources": ["faqs"],
+      "should_fallback": false
+    },
+    {
+      "id": "q09",
+      "category": "productos",
+      "question": "¿Cuánto cuesta el panel solar portátil?",
+      "expected_sources": ["product_catalog"],
+      "should_fallback": false
+    },
+    {
+      "id": "q10",
+      "category": "productos",
+      "question": "¿Qué características tiene la botella de bambú?",
+      "expected_sources": ["product_catalog"],
+      "should_fallback": false
+    },
+    {
+      "id": "q11",
+      "category": "productos",
+      "question": "¿En qué fragancias viene el champú sólido?",
+      "expected_sources": ["product_catalog"],
+      "should_fallback": false
+    },
+    {
+      "id": "q12",
+      "category": "productos",
+      "question": "¿Cuántos productos vienen en el set de cubiertos?",
+      "expected_sources": ["product_catalog"],
+      "should_fallback": false
+    },
+    {
+      "id": "q13",
+      "category": "productos",
+      "question": "¿De qué material están hechas las toallas?",
+      "expected_sources": ["product_catalog"],
+      "should_fallback": false
+    },
+    {
+      "id": "q14",
+      "category": "pagos",
+      "question": "¿Qué métodos de pago aceptan?",
+      "expected_sources": ["faqs"],
+      "should_fallback": false
+    },
+    {
+      "id": "q15",
+      "category": "pagos",
+      "question": "¿Puedo pagar a cuotas?",
+      "expected_sources": ["faqs"],
+      "should_fallback": false
+    },
+    {
+      "id": "q16",
+      "category": "cuenta",
+      "question": "Olvidé mi contraseña, ¿qué hago?",
+      "expected_sources": ["faqs"],
+      "should_fallback": false
+    },
+    {
+      "id": "q17",
+      "category": "cuenta",
+      "question": "¿Cómo cambio mi dirección de envío en mi cuenta?",
+      "expected_sources": ["faqs"],
+      "should_fallback": false
+    },
+    {
+      "id": "q18",
+      "category": "soporte",
+      "question": "¿En qué horario atienden?",
+      "expected_sources": ["faqs"],
+      "should_fallback": false
+    },
+    {
+      "id": "q19",
+      "category": "sostenibilidad",
+      "question": "¿Qué tipo de empaque usan?",
+      "expected_sources": ["faqs", "shipping_policy"],
+      "should_fallback": false
+    },
+    {
+      "id": "q20",
+      "category": "sostenibilidad",
+      "question": "¿Tienen programa de reciclaje?",
+      "expected_sources": ["faqs"],
+      "should_fallback": false
+    },
+    {
+      "id": "q21",
+      "category": "fuera_de_alcance",
+      "question": "¿Cuál es la receta del ajiaco bogotano?",
+      "expected_sources": [],
+      "should_fallback": true
+    },
+    {
+      "id": "q22",
+      "category": "fuera_de_alcance",
+      "question": "¿Cuántos goles ha hecho James Rodríguez?",
+      "expected_sources": [],
+      "should_fallback": true
+    },
+    {
+      "id": "q23",
+      "category": "fuera_de_alcance",
+      "question": "¿Pueden recomendarme un buen restaurante en Cartagena?",
+      "expected_sources": [],
+      "should_fallback": true
+    },
+    {
+      "id": "q24",
+      "category": "fuera_de_alcance",
+      "question": "¿Venden iPhones?",
+      "expected_sources": [],
+      "should_fallback": true
+    },
+    {
+      "id": "q25",
+      "category": "fuera_de_alcance",
+      "question": "¿Cuál es el horario del CEO?",
+      "expected_sources": [],
+      "should_fallback": true
+    }
+  ]
+}

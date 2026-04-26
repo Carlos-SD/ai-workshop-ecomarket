@@ -1,0 +1,124 @@
+{
+  "faqs": [
+    {
+      "id": "faq_001",
+      "categoria": "cuenta",
+      "pregunta": "¿Cómo creo una cuenta en EcoMarket?",
+      "respuesta": "Para crear tu cuenta, haz clic en 'Registrarse' en la esquina superior derecha de nuestra página web. Solo necesitas un correo electrónico válido y crear una contraseña. El proceso toma menos de un minuto y es completamente gratis."
+    },
+    {
+      "id": "faq_002",
+      "categoria": "cuenta",
+      "pregunta": "Olvidé mi contraseña, ¿cómo la recupero?",
+      "respuesta": "En la página de inicio de sesión haz clic en '¿Olvidaste tu contraseña?'. Te enviaremos un enlace al correo registrado para que puedas crear una nueva. El enlace expira en 24 horas por seguridad."
+    },
+    {
+      "id": "faq_003",
+      "categoria": "cuenta",
+      "pregunta": "¿Cómo cambio mi dirección de envío?",
+      "respuesta": "Inicia sesión, ve a 'Mi cuenta' y luego a 'Direcciones'. Allí puedes agregar, editar o eliminar direcciones. Si tu pedido ya fue procesado, contacta a soporte para ver si todavía es posible cambiarla."
+    },
+    {
+      "id": "faq_004",
+      "categoria": "pagos",
+      "pregunta": "¿Qué métodos de pago aceptan?",
+      "respuesta": "Aceptamos tarjetas de crédito y débito (Visa, Mastercard, American Express), PSE para transferencias bancarias en Colombia, Nequi, Daviplata, y pagos contra entrega en ciudades principales. Todos los pagos están protegidos con encriptación SSL."
+    },
+    {
+      "id": "faq_005",
+      "categoria": "pagos",
+      "pregunta": "¿Es seguro pagar en EcoMarket?",
+      "respuesta": "Sí, todas las transacciones están protegidas con certificación SSL y procesamos pagos a través de pasarelas certificadas PCI DSS. Nunca almacenamos los datos completos de tu tarjeta en nuestros servidores."
+    },
+    {
+      "id": "faq_006",
+      "categoria": "pagos",
+      "pregunta": "¿Puedo pagar en cuotas?",
+      "respuesta": "Sí, ofrecemos pagos a 3, 6 y 12 cuotas con tarjeta de crédito en compras superiores a $200.000 COP. Las cuotas sin interés dependen del banco emisor y la promoción vigente al momento de la compra."
+    },
+    {
+      "id": "faq_007",
+      "categoria": "pedidos",
+      "pregunta": "¿Cómo hago seguimiento a mi pedido?",
+      "respuesta": "Puedes consultar el estado de tu pedido ingresando el número de orden en nuestra sección de seguimiento, o desde 'Mi cuenta' > 'Mis pedidos'. También recibirás actualizaciones por correo electrónico en cada cambio de estado."
+    },
+    {
+      "id": "faq_008",
+      "categoria": "pedidos",
+      "pregunta": "¿Puedo modificar mi pedido después de realizarlo?",
+      "respuesta": "Solo puedes modificar tu pedido durante los primeros 30 minutos después de realizarlo, antes de que entre a procesamiento. Después de ese tiempo, contacta a soporte y haremos lo posible por ayudarte, aunque no podemos garantizar el cambio."
+    },
+    {
+      "id": "faq_009",
+      "categoria": "pedidos",
+      "pregunta": "¿Puedo cancelar mi pedido?",
+      "respuesta": "Sí, puedes cancelar tu pedido sin costo si todavía no ha sido despachado. Una vez en tránsito, deberás esperar a recibirlo y procesar una devolución según nuestra política de devoluciones."
+    },
+    {
+      "id": "faq_010",
+      "categoria": "envios",
+      "pregunta": "¿Hacen envíos internacionales?",
+      "respuesta": "Por ahora solo realizamos envíos dentro de Colombia. Estamos evaluando expandirnos a otros países de Latinoamérica durante 2026. Si quieres ser notificado cuando esto ocurra, suscríbete a nuestro boletín."
+    },
+    {
+      "id": "faq_011",
+      "categoria": "envios",
+      "pregunta": "¿Cuánto cuesta el envío?",
+      "respuesta": "El costo de envío depende del destino y peso del pedido. Envíos a ciudades principales cuestan desde $8.000 COP. Compras superiores a $150.000 COP tienen envío gratis a nivel nacional."
+    },
+    {
+      "id": "faq_012",
+      "categoria": "productos",
+      "pregunta": "¿Sus productos son realmente sostenibles?",
+      "respuesta": "Sí. Cada producto en EcoMarket pasa por un proceso de evaluación que considera materiales, proceso de fabricación, empaque y huella de carbono. Trabajamos con marcas que tienen certificaciones como FSC, B-Corp, Fair Trade, o pruebas verificables de prácticas sostenibles."
+    },
+    {
+      "id": "faq_013",
+      "categoria": "productos",
+      "pregunta": "¿Qué hago si recibo un producto defectuoso?",
+      "respuesta": "Si recibes un producto defectuoso, contáctanos a soporte@ecomarket.com dentro de los 7 días siguientes a la entrega. Adjunta fotos del producto y el número de pedido. Te enviaremos un reemplazo sin costo o procesaremos un reembolso completo, según prefieras."
+    },
+    {
+      "id": "faq_014",
+      "categoria": "productos",
+      "pregunta": "¿Tienen tienda física?",
+      "respuesta": "Actualmente operamos solo en línea, pero tenemos un punto de exhibición en Bogotá donde puedes ver algunos productos antes de comprar. La dirección y horarios están disponibles en la sección 'Contacto' de nuestra web."
+    },
+    {
+      "id": "faq_015",
+      "categoria": "devoluciones",
+      "pregunta": "¿Cuál es el plazo para devolver un producto?",
+      "respuesta": "El plazo general es de 30 días desde la fecha de entrega. Algunos productos como electrónicos tienen el mismo plazo, mientras que productos de higiene personal y cosméticos no son retornables por razones sanitarias."
+    },
+    {
+      "id": "faq_016",
+      "categoria": "devoluciones",
+      "pregunta": "¿Quién paga el envío de la devolución?",
+      "respuesta": "Si el producto tiene un defecto o llegó dañado, EcoMarket cubre el envío de regreso. Si la devolución es por arrepentimiento o cambio de opinión, el costo del envío de regreso corre por cuenta del cliente."
+    },
+    {
+      "id": "faq_017",
+      "categoria": "sostenibilidad",
+      "pregunta": "¿Qué tipo de empaque usan?",
+      "respuesta": "Usamos cajas de cartón reciclado y reciclable, y rellenos biodegradables hechos de almidón de maíz. No usamos plástico de un solo uso en nuestros empaques. La cinta es de papel kraft adhesivo libre de plástico."
+    },
+    {
+      "id": "faq_018",
+      "categoria": "sostenibilidad",
+      "pregunta": "¿Tienen programa de reciclaje?",
+      "respuesta": "Sí. Nuestro programa 'EcoCircular' permite enviarnos de vuelta los empaques de tus pedidos anteriores. Por cada 5 empaques que retornes, recibes un cupón de descuento del 10% en tu próxima compra. Encuentras más información en la sección Sostenibilidad de nuestra web."
+    },
+    {
+      "id": "faq_019",
+      "categoria": "soporte",
+      "pregunta": "¿Cuál es el horario de atención?",
+      "respuesta": "Nuestro equipo humano de soporte atiende de lunes a viernes de 8:00 a 18:00 y sábados de 9:00 a 13:00 (hora Colombia). Sin embargo, nuestro asistente virtual está disponible 24/7 para resolver consultas básicas."
+    },
+    {
+      "id": "faq_020",
+      "categoria": "soporte",
+      "pregunta": "¿Cómo puedo contactarlos?",
+      "respuesta": "Puedes contactarnos por correo a soporte@ecomarket.com, por WhatsApp al +57 300 123 4567, o usando el chat de nuestra página web. También respondemos por nuestras redes sociales en horario de atención."
+    }
+  ]
+}

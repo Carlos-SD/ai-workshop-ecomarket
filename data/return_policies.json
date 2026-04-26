@@ -1,96 +1,96 @@
 {
-  "returnable_products": [
+  "return_policies": [
     {
-      "name": "Reusable bamboo water bottle",
-      "category": "Kitchen & Dining",
+      "name": "Botella de agua reutilizable de bambú",
+      "category": "Cocina y Comedor",
       "returnable": true,
       "return_period_days": 30,
-      "conditions": "Product unused, in original packaging"
+      "conditions": "Producto sin uso, en empaque original"
     },
     {
-      "name": "Organic cotton tote bag",
-      "category": "Accessories",
+      "name": "Bolsa tote de algodón orgánico",
+      "category": "Accesorios",
       "returnable": true,
       "return_period_days": 30,
-      "conditions": "No signs of use"
+      "conditions": "Sin signos de uso"
     },
     {
-      "name": "Bamboo toothbrush",
-      "category": "Personal Hygiene",
+      "name": "Cepillo de dientes de bambú",
+      "category": "Higiene Personal",
       "returnable": false,
-      "reason": "Personal hygiene items cannot be returned due to health and safety regulations"
+      "reason": "Los productos de higiene personal no pueden ser devueltos por regulaciones de salud y seguridad"
     },
     {
-      "name": "Natural solid shampoo bar",
-      "category": "Personal Care",
+      "name": "Champú sólido natural",
+      "category": "Cuidado Personal",
       "returnable": false,
-      "reason": "Cosmetic products cannot be returned once opened"
+      "reason": "Los productos cosméticos no pueden ser devueltos una vez abiertos"
     },
     {
-      "name": "Solid conditioner bar",
-      "category": "Personal Care",
+      "name": "Acondicionador sólido en barra",
+      "category": "Cuidado Personal",
       "returnable": false,
-      "reason": "Cosmetic products cannot be returned once opened"
+      "reason": "Los productos cosméticos no pueden ser devueltos una vez abiertos"
     },
     {
-      "name": "Stainless steel cutlery set",
-      "category": "Kitchen & Dining",
+      "name": "Set de cubiertos de acero inoxidable",
+      "category": "Cocina y Comedor",
       "returnable": true,
       "return_period_days": 30,
-      "conditions": "Sealed packaging, unused"
+      "conditions": "Empaque sellado, sin uso"
     },
     {
-      "name": "Small home composter",
-      "category": "Home & Garden",
+      "name": "Compostador doméstico pequeño",
+      "category": "Hogar y Jardín",
       "returnable": true,
       "return_period_days": 45,
-      "conditions": "No signs of use, with all included accessories"
+      "conditions": "Sin signos de uso, con todos los accesorios incluidos"
     },
     {
-      "name": "Natural soap",
-      "category": "Personal Hygiene",
+      "name": "Jabón natural artesanal",
+      "category": "Higiene Personal",
       "returnable": false,
-      "reason": "Perishable and personal hygiene product"
+      "reason": "Producto perecedero y de higiene personal"
     },
     {
-      "name": "Natural deodorant",
-      "category": "Personal Hygiene",
+      "name": "Desodorante natural en barra",
+      "category": "Higiene Personal",
       "returnable": false,
-      "reason": "Personal hygiene items cannot be returned"
+      "reason": "Los productos de higiene personal no pueden ser devueltos"
     },
     {
-      "name": "Portable solar panels",
-      "category": "Electronics",
+      "name": "Panel solar portátil",
+      "category": "Electrónicos",
       "returnable": true,
       "return_period_days": 30,
-      "conditions": "Original packaging, with manufacturer's warranty"
+      "conditions": "Empaque original, con garantía del fabricante"
     },
     {
-      "name": "Activated carbon water filter",
-      "category": "Home & Kitchen",
+      "name": "Filtro de agua de carbón activado",
+      "category": "Hogar y Cocina",
       "returnable": true,
       "return_period_days": 15,
-      "conditions": "Unused, sealed packaging"
+      "conditions": "Sin uso, empaque sellado"
     },
     {
-      "name": "Glass containers",
-      "category": "Storage",
+      "name": "Set de recipientes de vidrio",
+      "category": "Almacenamiento",
       "returnable": true,
       "return_period_days": 30,
-      "conditions": "No breakage, original packaging"
+      "conditions": "Sin roturas, empaque original"
     },
     {
-      "name": "Bamboo towels",
+      "name": "Toallas de fibra de bambú",
       "category": "Textiles",
       "returnable": true,
       "return_period_days": 30,
-      "conditions": "Unwashed, original tags attached"
+      "conditions": "Sin lavar, etiquetas originales"
     },
     {
-      "name": "Natural sponges",
-      "category": "Cleaning",
+      "name": "Esponjas naturales de luffa",
+      "category": "Limpieza",
       "returnable": false,
-      "reason": "Cleaning products cannot be returned for hygiene reasons"
+      "reason": "Los productos de limpieza no pueden ser devueltos por razones de higiene"
     }
   ]
 }

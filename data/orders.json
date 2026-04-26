@@ -1,94 +1,94 @@
 {
   "12345": {
-    "status": "In Transit",
-    "order_date": "2026-04-10",
-    "estimated_delivery": "2026-04-20",
-    "products": ["Reusable bamboo water bottle", "Organic cotton tote bag"],
+    "estado": "En tránsito",
+    "fecha_pedido": "2026-04-10",
+    "entrega_estimada": "2026-04-20",
+    "productos": ["Botella de agua reutilizable de bambú", "Bolsa tote de algodón orgánico"],
     "total": 45.99,
-    "carrier": "EcoExpress",
-    "tracking_link": "https://tracking.ecoexpress.com/12345"
+    "transportadora": "EcoExpress",
+    "link_seguimiento": "https://tracking.ecoexpress.com/12345"
   },
   "12346": {
-    "status": "Delivered",
-    "order_date": "2026-04-08",
-    "delivery_date": "2026-04-15",
-    "products": ["Bamboo toothbrush (pack of 5)"],
+    "estado": "Entregado",
+    "fecha_pedido": "2026-04-08",
+    "fecha_entrega": "2026-04-15",
+    "productos": ["Set de cepillos de dientes de bambú (paquete de 5)"],
     "total": 15.50,
-    "carrier": "GreenShipping",
-    "tracking_link": "https://tracking.greenship.com/12346"
+    "transportadora": "GreenShipping",
+    "link_seguimiento": "https://tracking.greenship.com/12346"
   },
   "12347": {
-    "status": "Processing",
-    "order_date": "2026-04-14",
-    "estimated_delivery": "2026-04-22",
-    "products": ["Natural solid shampoo bar", "Solid conditioner bar"],
+    "estado": "En procesamiento",
+    "fecha_pedido": "2026-04-14",
+    "entrega_estimada": "2026-04-22",
+    "productos": ["Champú sólido natural", "Acondicionador sólido en barra"],
     "total": 32.00,
-    "carrier": "Pending",
-    "tracking_link": null
+    "transportadora": "Pendiente",
+    "link_seguimiento": null
   },
   "12348": {
-    "status": "In Transit",
-    "order_date": "2026-04-11",
-    "estimated_delivery": "2026-04-18",
-    "products": ["Stainless steel cutlery set", "Metal straws (pack of 4)"],
+    "estado": "En tránsito",
+    "fecha_pedido": "2026-04-11",
+    "entrega_estimada": "2026-04-18",
+    "productos": ["Set de cubiertos de acero inoxidable", "Pajitas de metal (paquete de 4)"],
     "total": 28.75,
-    "carrier": "EcoExpress",
-    "tracking_link": "https://tracking.ecoexpress.com/12348"
+    "transportadora": "EcoExpress",
+    "link_seguimiento": "https://tracking.ecoexpress.com/12348"
   },
   "12349": {
-    "status": "Delayed",
-    "order_date": "2026-04-05",
-    "original_delivery": "2026-04-12",
-    "new_estimated_delivery": "2026-04-19",
-    "products": ["Small home composter"],
+    "estado": "Retrasado",
+    "fecha_pedido": "2026-04-05",
+    "entrega_original": "2026-04-12",
+    "nueva_entrega_estimada": "2026-04-19",
+    "productos": ["Compostador doméstico pequeño"],
     "total": 89.99,
-    "carrier": "GreenShipping",
-    "tracking_link": "https://tracking.greenship.com/12349",
-    "delay_reason": "Customs clearance delay"
+    "transportadora": "GreenShipping",
+    "link_seguimiento": "https://tracking.greenship.com/12349",
+    "motivo_retraso": "Demora en trámite aduanero"
   },
   "12350": {
-    "status": "Delivered",
-    "order_date": "2026-04-01",
-    "delivery_date": "2026-04-07",
-    "products": ["Natural lavender soap (pack of 3)", "Natural deodorant"],
+    "estado": "Entregado",
+    "fecha_pedido": "2026-04-01",
+    "fecha_entrega": "2026-04-07",
+    "productos": ["Jabón natural de lavanda (paquete de 3)", "Desodorante natural en barra"],
     "total": 24.50,
-    "carrier": "EcoExpress",
-    "tracking_link": "https://tracking.ecoexpress.com/12350"
+    "transportadora": "EcoExpress",
+    "link_seguimiento": "https://tracking.ecoexpress.com/12350"
   },
   "12351": {
-    "status": "Cancelled",
-    "order_date": "2026-04-13",
-    "cancellation_date": "2026-04-14",
-    "products": ["Portable solar panels"],
+    "estado": "Cancelado",
+    "fecha_pedido": "2026-04-13",
+    "fecha_cancelacion": "2026-04-14",
+    "productos": ["Panel solar portátil"],
     "total": 199.99,
-    "cancellation_reason": "Product out of stock",
-    "refund_processed": true
+    "motivo_cancelacion": "Producto sin stock",
+    "reembolso_procesado": true
   },
   "12352": {
-    "status": "In Transit",
-    "order_date": "2026-04-12",
-    "estimated_delivery": "2026-04-21",
-    "products": ["Activated carbon water filter", "Glass water bottle 1L"],
+    "estado": "En tránsito",
+    "fecha_pedido": "2026-04-12",
+    "entrega_estimada": "2026-04-21",
+    "productos": ["Filtro de agua de carbón activado", "Botella de vidrio 1L"],
     "total": 67.30,
-    "carrier": "GreenShipping",
-    "tracking_link": "https://tracking.greenship.com/12352"
+    "transportadora": "GreenShipping",
+    "link_seguimiento": "https://tracking.greenship.com/12352"
   },
   "12353": {
-    "status": "Processing",
-    "order_date": "2026-04-15",
-    "estimated_delivery": "2026-04-23",
-    "products": ["Glass food storage containers (set of 6)"],
+    "estado": "En procesamiento",
+    "fecha_pedido": "2026-04-15",
+    "entrega_estimada": "2026-04-23",
+    "productos": ["Set de recipientes de vidrio para alimentos (6 unidades)"],
     "total": 54.99,
-    "carrier": "Pending",
-    "tracking_link": null
+    "transportadora": "Pendiente",
+    "link_seguimiento": null
   },
   "12354": {
-    "status": "Delivered",
-    "order_date": "2026-04-03",
-    "delivery_date": "2026-04-10",
-    "products": ["Bamboo towels (set of 2)", "Natural sponges (pack of 5)"],
+    "estado": "Entregado",
+    "fecha_pedido": "2026-04-03",
+    "fecha_entrega": "2026-04-10",
+    "productos": ["Toallas de fibra de bambú (set de 2)", "Esponjas naturales de luffa (paquete de 5)"],
     "total": 41.25,
-    "carrier": "EcoExpress",
-    "tracking_link": "https://tracking.ecoexpress.com/12354"
+    "transportadora": "EcoExpress",
+    "link_seguimiento": "https://tracking.ecoexpress.com/12354"
   }
 }

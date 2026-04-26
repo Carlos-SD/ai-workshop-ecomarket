@@ -1,0 +1,276 @@
+{
+  "productos": [
+    {
+      "id": "prod_001",
+      "nombre": "Botella de agua reutilizable de bambú",
+      "categoria": "Cocina y Comedor",
+      "precio_cop": 45000,
+      "precio_usd": 11.50,
+      "capacidad": "750ml",
+      "material_principal": "Bambú natural y acero inoxidable",
+      "descripcion": "Botella térmica con cuerpo de bambú natural y interior de acero inoxidable. Mantiene bebidas frías hasta 24 horas y calientes hasta 12 horas. Tapa hermética con sistema antiderrame. Libre de BPA y plásticos tóxicos. Reemplaza el uso de aproximadamente 200 botellas plásticas al año.",
+      "caracteristicas": [
+        "Capacidad de 750ml",
+        "Aislamiento térmico doble pared",
+        "Tapa antiderrame de bambú",
+        "Apta para bebidas calientes y frías",
+        "Diseño ergonómico"
+      ],
+      "color_disponible": ["Natural", "Carbonizado"],
+      "stock": 45,
+      "garantia_meses": 12,
+      "certificaciones": ["FSC", "Libre de BPA"]
+    },
+    {
+      "id": "prod_002",
+      "nombre": "Bolsa tote de algodón orgánico",
+      "categoria": "Accesorios",
+      "precio_cop": 28000,
+      "precio_usd": 7.20,
+      "material_principal": "Algodón orgánico certificado GOTS",
+      "descripcion": "Bolsa reutilizable hecha con algodón 100% orgánico, sin pesticidas ni químicos sintéticos. Capacidad de carga hasta 15kg. Costuras reforzadas para mayor durabilidad. Diseño minimalista con asas largas que permiten cargarla cómodamente al hombro.",
+      "caracteristicas": [
+        "Capacidad de carga: 15kg",
+        "Costuras reforzadas",
+        "Lavable a máquina hasta 30°C",
+        "Asas largas para uso al hombro",
+        "100% biodegradable"
+      ],
+      "color_disponible": ["Crudo", "Negro", "Verde oliva"],
+      "stock": 120,
+      "certificaciones": ["GOTS", "Fair Trade"]
+    },
+    {
+      "id": "prod_003",
+      "nombre": "Set de cepillos de dientes de bambú (paquete de 5)",
+      "categoria": "Higiene Personal",
+      "precio_cop": 32000,
+      "precio_usd": 8.20,
+      "material_principal": "Bambú Moso y cerdas de fibra de carbón vegetal",
+      "descripcion": "Set de 5 cepillos de dientes con mango de bambú Moso de cultivo sostenible. Las cerdas son de fibra de carbón vegetal, libres de BPA. El mango se descompone naturalmente en 6 meses bajo condiciones de compostaje. Incluye empaque biodegradable individual.",
+      "caracteristicas": [
+        "5 unidades por paquete",
+        "Mango de bambú Moso",
+        "Cerdas suaves de carbón vegetal",
+        "Biodegradable en 6 meses",
+        "Libre de plástico"
+      ],
+      "stock": 200,
+      "certificaciones": ["FSC", "Vegano"]
+    },
+    {
+      "id": "prod_004",
+      "nombre": "Champú sólido natural",
+      "categoria": "Cuidado Personal",
+      "precio_cop": 22000,
+      "precio_usd": 5.65,
+      "peso": "100g",
+      "material_principal": "Aceites vegetales y extractos botánicos",
+      "descripcion": "Champú en barra sólida que reemplaza aproximadamente 3 botellas de champú líquido convencional. Formulado con aceites de coco, oliva y argán. Sin sulfatos, parabenos ni siliconas. Apto para todo tipo de cabello. Su empaque es de papel kraft 100% reciclable.",
+      "caracteristicas": [
+        "Equivale a 3 botellas líquidas",
+        "Sin sulfatos ni parabenos",
+        "Para todo tipo de cabello",
+        "Empaque de papel reciclable",
+        "100% vegano"
+      ],
+      "fragancias": ["Lavanda", "Romero", "Coco", "Sin fragancia"],
+      "stock": 85,
+      "certificaciones": ["Vegano", "Cruelty Free"]
+    },
+    {
+      "id": "prod_005",
+      "nombre": "Acondicionador sólido en barra",
+      "categoria": "Cuidado Personal",
+      "precio_cop": 22000,
+      "precio_usd": 5.65,
+      "peso": "100g",
+      "material_principal": "Manteca de karité y aceites vegetales",
+      "descripcion": "Acondicionador sólido formulado con manteca de karité, aceite de coco y proantenidas vegetales. Hidrata profundamente sin dejar residuos grasos. Una barra equivale a 2 envases de acondicionador líquido convencional.",
+      "caracteristicas": [
+        "Equivale a 2 envases líquidos",
+        "Hidratación profunda",
+        "Sin siliconas",
+        "Empaque biodegradable",
+        "100% vegano"
+      ],
+      "fragancias": ["Lavanda", "Romero", "Coco", "Sin fragancia"],
+      "stock": 78,
+      "certificaciones": ["Vegano", "Cruelty Free"]
+    },
+    {
+      "id": "prod_006",
+      "nombre": "Set de cubiertos de acero inoxidable",
+      "categoria": "Cocina y Comedor",
+      "precio_cop": 38000,
+      "precio_usd": 9.75,
+      "material_principal": "Acero inoxidable grado alimenticio 304",
+      "descripcion": "Set portátil con tenedor, cuchillo, cuchara, palillos y pajita reutilizable. Incluye estuche de tela de algodón orgánico para transporte. Ideal para comidas fuera de casa, evitando el uso de cubiertos desechables. Apto para lavavajillas.",
+      "caracteristicas": [
+        "Set de 5 piezas",
+        "Estuche de algodón incluido",
+        "Apto para lavavajillas",
+        "Acero inoxidable 304",
+        "Diseño compacto y ligero"
+      ],
+      "stock": 95,
+      "garantia_meses": 24,
+      "certificaciones": ["Apto contacto alimentos"]
+    },
+    {
+      "id": "prod_007",
+      "nombre": "Compostador doméstico pequeño",
+      "categoria": "Hogar y Jardín",
+      "precio_cop": 165000,
+      "precio_usd": 42.30,
+      "capacidad": "5 litros",
+      "material_principal": "Plástico reciclado",
+      "descripcion": "Compostador compacto ideal para apartamentos. Sistema de filtros de carbón activado que neutraliza olores. Permite procesar residuos orgánicos de la cocina y obtener abono para plantas en aproximadamente 2 meses. Incluye guía de uso y bolsa de bacterias iniciadoras.",
+      "caracteristicas": [
+        "Capacidad 5 litros",
+        "Filtros de carbón antiolores",
+        "Diseño apartamento-friendly",
+        "Incluye bacterias iniciadoras",
+        "Guía de uso impresa"
+      ],
+      "stock": 32,
+      "garantia_meses": 12,
+      "certificaciones": ["Fabricado con plástico reciclado"]
+    },
+    {
+      "id": "prod_008",
+      "nombre": "Jabón natural artesanal",
+      "categoria": "Higiene Personal",
+      "precio_cop": 18000,
+      "precio_usd": 4.60,
+      "peso": "120g",
+      "material_principal": "Aceites vegetales y aceites esenciales",
+      "descripcion": "Jabón hecho a mano por método de saponificación en frío con aceites de oliva, coco y palma sostenible. Sin químicos sintéticos, colorantes ni fragancias artificiales. Apto para piel sensible. Pack disponible de 3 unidades con descuento.",
+      "caracteristicas": [
+        "120g por unidad",
+        "Saponificación en frío",
+        "Sin químicos sintéticos",
+        "Apto piel sensible",
+        "Disponible en pack de 3"
+      ],
+      "fragancias": ["Lavanda", "Eucalipto", "Caléndula", "Avena natural"],
+      "stock": 150,
+      "certificaciones": ["Vegano", "Cruelty Free"]
+    },
+    {
+      "id": "prod_009",
+      "nombre": "Desodorante natural en barra",
+      "categoria": "Higiene Personal",
+      "precio_cop": 25000,
+      "precio_usd": 6.40,
+      "peso": "60g",
+      "material_principal": "Bicarbonato de sodio, aceites esenciales",
+      "descripcion": "Desodorante en barra sin aluminio, sin parabenos y sin alcohol. Formulado con bicarbonato de sodio, aceite de coco y aceites esenciales naturales. Empaque de cartón biodegradable. Duración promedio de 3 meses con uso diario.",
+      "caracteristicas": [
+        "Sin aluminio",
+        "Sin parabenos ni alcohol",
+        "Empaque biodegradable",
+        "Duración 3 meses",
+        "Probado dermatológicamente"
+      ],
+      "fragancias": ["Cítricos", "Lavanda", "Sin fragancia"],
+      "stock": 110,
+      "certificaciones": ["Vegano", "Dermatológicamente probado"]
+    },
+    {
+      "id": "prod_010",
+      "nombre": "Panel solar portátil",
+      "categoria": "Electrónicos",
+      "precio_cop": 220000,
+      "precio_usd": 56.40,
+      "potencia": "20W",
+      "material_principal": "Silicio monocristalino",
+      "descripcion": "Panel solar plegable de 20W con dos puertos USB. Ideal para cargar teléfonos, tablets y baterías portátiles durante actividades al aire libre o como sistema de respaldo de energía. Incluye estuche de transporte resistente al agua y certificación IPX5.",
+      "caracteristicas": [
+        "Potencia 20W",
+        "Dos puertos USB",
+        "Plegable y portátil",
+        "Resistente al agua IPX5",
+        "Estuche de transporte incluido"
+      ],
+      "stock": 28,
+      "garantia_meses": 24,
+      "certificaciones": ["CE", "RoHS"]
+    },
+    {
+      "id": "prod_011",
+      "nombre": "Filtro de agua de carbón activado",
+      "categoria": "Hogar y Cocina",
+      "precio_cop": 45000,
+      "precio_usd": 11.50,
+      "capacidad_filtrado": "200 litros",
+      "material_principal": "Carbón activado de cáscara de coco",
+      "descripcion": "Filtro de carbón activado hecho de cáscara de coco. Elimina cloro, metales pesados y mejora el sabor del agua. Compatible con jarras filtrantes estándar. Cada filtro purifica hasta 200 litros de agua, equivalente a aproximadamente 2 meses de uso para una familia de 4 personas.",
+      "caracteristicas": [
+        "Capacidad: 200 litros",
+        "Carbón activado de coco",
+        "Elimina cloro y metales pesados",
+        "Compatible con jarras estándar",
+        "Reciclable después de uso"
+      ],
+      "stock": 67,
+      "certificaciones": ["NSF/ANSI 42"]
+    },
+    {
+      "id": "prod_012",
+      "nombre": "Set de recipientes de vidrio",
+      "categoria": "Almacenamiento",
+      "precio_cop": 75000,
+      "precio_usd": 19.20,
+      "material_principal": "Vidrio borosilicato y tapas de bambú",
+      "descripcion": "Set de 6 recipientes de vidrio borosilicato resistente con tapas herméticas de bambú y silicona. Aptos para horno, microondas, congelador y lavavajillas. Tamaños variados: 350ml, 600ml y 1000ml (2 de cada uno). Ideales para meal prep y conservación de alimentos.",
+      "caracteristicas": [
+        "Set de 6 piezas",
+        "Tapas de bambú herméticas",
+        "Aptos para horno y microondas",
+        "Vidrio borosilicato resistente",
+        "Tamaños: 350ml, 600ml, 1000ml"
+      ],
+      "stock": 42,
+      "garantia_meses": 12,
+      "certificaciones": ["Apto contacto alimentos"]
+    },
+    {
+      "id": "prod_013",
+      "nombre": "Toallas de fibra de bambú",
+      "categoria": "Textiles",
+      "precio_cop": 65000,
+      "precio_usd": 16.65,
+      "material_principal": "Fibra de bambú orgánico",
+      "descripcion": "Set de 2 toallas de fibra de bambú orgánico. La fibra de bambú es naturalmente antibacterial y absorbe hasta 4 veces más agua que el algodón convencional. Tacto suave similar a la cachemira. Lavables a máquina y de secado rápido. Tamaño 70x140cm.",
+      "caracteristicas": [
+        "Set de 2 toallas",
+        "Tamaño 70x140cm",
+        "Antibacterial natural",
+        "Mayor absorción que el algodón",
+        "Lavables a máquina"
+      ],
+      "color_disponible": ["Blanco", "Gris perla", "Verde menta"],
+      "stock": 55,
+      "certificaciones": ["OEKO-TEX"]
+    },
+    {
+      "id": "prod_014",
+      "nombre": "Esponjas naturales de luffa",
+      "categoria": "Limpieza",
+      "precio_cop": 15000,
+      "precio_usd": 3.85,
+      "material_principal": "Fibra natural de luffa",
+      "descripcion": "Pack de 5 esponjas naturales hechas de fibra de luffa, planta cultivada de forma orgánica. 100% biodegradables. Ideales para limpieza de utensilios de cocina o uso corporal exfoliante. Duración promedio de 4-6 semanas con uso diario antes de reemplazar.",
+      "caracteristicas": [
+        "Pack de 5 unidades",
+        "100% biodegradable",
+        "Origen vegetal cultivado",
+        "Multiusos (cocina o cuerpo)",
+        "Duración 4-6 semanas"
+      ],
+      "stock": 180,
+      "certificaciones": ["Orgánico", "Biodegradable"]
+    }
+  ]
+}

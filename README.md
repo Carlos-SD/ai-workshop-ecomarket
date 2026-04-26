@@ -1,27 +1,46 @@
-# EcoMarket AI Customer Service
+# EcoMarket - Atención al Cliente con IA
 
-AI-powered system for handling customer service queries using Google Gemini. Automatically answers order status and return policy questions.
+Sistema de atención al cliente con inteligencia artificial para EcoMarket, empresa de productos sostenibles. El proyecto cubre dos talleres:
+
+- **Taller 1:** Sistema básico con prompts directos para consultas de estado de pedidos y política de devoluciones.
+- **Taller 2:** Sistema RAG (Generación Aumentada por Recuperación) que extiende las capacidades del modelo para responder cualquier consulta basándose en una base de conocimiento de la empresa.
 
 ---
 
-## Project Structure
+## Estructura del Proyecto
 
 ```
 ai-workshop-ecomarket/
 ├── data/
-│   ├── orders.json              # Test order data
-│   └── return_policies.json     # Product return policies
+│   ├── orders.json                    # Datos de pedidos de prueba (Taller 1)
+│   ├── return_policies.json           # Políticas de devolución por producto
+│   ├── faqs.json                      # Preguntas frecuentes (Taller 2)
+│   ├── product_catalog.json           # Catálogo de productos (Taller 2)
+│   └── shipping_policy.md             # Política de envíos (Taller 2)
 ├── docs/
-│   ├── PHASE1.md               # Model selection justification
-│   └── PHASE2.md               # Analysis of strengths, limitations, ethics
+│   ├── Taller1/
+│   │   ├── FASE1.md                   # Selección del modelo de IA
+│   │   └── FASE2.md                   # Análisis crítico del sistema básico
+│   └── Taller2/
+│       ├── seleccion_componentes.md   # Selección de embeddings y base vectorial
+│       ├── base_conocimiento.md       # Construcción de la base de conocimiento y chunking
+│       └── implementacion_integracion.md  # Implementación, evaluación y limitaciones
 ├── prompts/
-│   ├── order_query_prompt.txt  # Prompt for order status queries
-│   └── return_query_prompt.txt # Prompt for return policy queries
+│   ├── order_query_prompt.txt         # Prompt para consultas de pedidos
+│   ├── return_query_prompt.txt        # Prompt para consultas de devoluciones
+│   └── rag_query_prompt.txt           # Prompt para el sistema RAG
 ├── scripts/
-│   ├── order_query.py          # Order status lookup script
-│   └── return_query.py         # Return policy lookup script
-├── .env                        # Your API key (never commit this!)
-├── .env.example                # Template for .env file
+│   ├── order_query.py                 # Consulta de estado de pedido (Taller 1)
+│   ├── return_query.py                # Consulta de política de devolución (Taller 1)
+│   ├── build_knowledge_base.py        # Construye la base de conocimiento RAG (Taller 2)
+│   ├── rag_query.py                   # Sistema RAG principal (Taller 2)
+│   └── evaluate_rag.py                # Evaluación del sistema (Taller 2)
+├── evaluation/
+│   └── test_questions.json            # Preguntas de prueba para evaluación
+├── chroma_db/                         # Base vectorial (generada al indexar)
+├── logs/                              # Registro de preguntas sin respuesta
+├── .env                               # Tu API key (no subir al repositorio)
+├── .env.example                       # Plantilla de configuración
 ├── .gitignore
 ├── requirements.txt
 └── README.md
@@ -29,350 +48,340 @@ ai-workshop-ecomarket/
 
 ---
 
-## Setup
+## Configuración Inicial
 
-### Step 1: Create a Virtual Environment
+### 1. Clonar el Repositorio
 
-Using a virtual environment keeps your project dependencies isolated from your system Python.
+```bash
+git clone https://github.com/yourusername/ai-workshop-ecomarket.git
+cd ai-workshop-ecomarket
+```
 
-**On macOS/Linux:**
+### 2. Crear un Entorno Virtual
+
+Un entorno virtual mantiene las dependencias del proyecto aisladas del Python del sistema.
+
+**En macOS/Linux:**
 ```bash
 python3 -m venv venv
 source venv/bin/activate
 ```
 
-**On Windows:**
+**En Windows:**
 ```bash
 python -m venv venv
 venv\Scripts\activate
 ```
 
-When activated, you'll see `(venv)` at the start of your terminal prompt.
+Cuando esté activado, verás `(venv)` al inicio del prompt de la terminal.
 
-### Step 2: Install Dependencies
+### 3. Instalar Dependencias
 
-With your virtual environment activated:
+Con el entorno virtual activado:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-This installs:
-- `google-generativeai>=0.3.0` - Google Gemini API client
-- `python-dotenv>=1.0.0` - Loads environment variables from .env file
+Esto instala todas las dependencias del proyecto, incluyendo las del Taller 1 (Gemini, dotenv) y las del Taller 2 (LangChain, ChromaDB, sentence-transformers).
 
-### Step 3: Get Your Google Gemini API Key
+**Nota sobre la primera instalación:** El paquete `sentence-transformers` y sus dependencias son grandes (~500MB). La primera instalación puede tardar varios minutos.
 
-1. Go to [Google AI Studio](https://makersuite.google.com/app/apikey)
-2. Sign in with your Google account
-3. Click "Create API Key"
-4. Copy the generated key (starts with `AIza...`)
+### 4. Obtener una API Key de Google Gemini
 
-**Note:** The API is completely free. No credit card required.
+1. Ve a [Google AI Studio](https://makersuite.google.com/app/apikey)
+2. Inicia sesión con tu cuenta de Google
+3. Haz clic en "Crear API Key"
+4. Copia la clave generada
 
-### Step 4: Configure Your API Key
+La API es gratuita y no requiere tarjeta de crédito.
 
-You need to create a `.env` file with your API key. There are two ways to do this:
+### 5. Configurar la API Key
 
-**Option A: Copy from the example file (recommended)**
+Crea un archivo `.env` con tu API key. Hay dos formas:
+
+**Opción A: Copiar desde el archivo de ejemplo (recomendado)**
 ```bash
 cp .env.example .env
 ```
 
-Then open `.env` in your text editor and replace the placeholder:
+Luego edita `.env` y reemplaza el placeholder con tu clave real:
 ```
-GOOGLE_API_KEY=your-actual-api-key-here
+GOOGLE_API_KEY=tu-clave-api-aquí
 ```
+
+**Opción B: Crear `.env` manualmente**
+```bash
+echo "GOOGLE_API_KEY=tu-clave-api-aquí" > .env
+```
+
+**Importante:** Nunca subas tu archivo `.env` al repositorio. Ya está en `.gitignore` para evitar commits accidentales.
+
 ---
 
-## Usage
+## Taller 1: Sistema Básico con Prompts Directos
 
-Make sure your virtual environment is activated before running the scripts:
-```bash
-# If you see (venv) in your prompt, you're good to go
-# If not, activate it:
-source venv/bin/activate  # macOS/Linux
-# or
-venv\Scripts\activate     # Windows
-```
-
-### Check Order Status
-
-```bash
-cd scripts
-python order_query.py
-```
-
-**Example interaction:**
-```
-🌿 ECOMARKET - ORDER STATUS QUERY 🌿
-Enter order number (e.g., 12345): 12345
-
-🔍 Searching for your order...
-
-AI RESPONSE:
-Hi there! I've located your order #12345. It's currently in transit 
-and should arrive by April 20, 2024. You can track it here: 
-https://track.ecomarket.com/12345
-
-Your order includes:
-- Reusable Water Bottle (Stainless Steel, 750ml)
-```
-
-### Check Return Policy
+### Consulta de Estado de Pedido
 
 ```bash
-cd scripts
-python return_query.py
+python scripts/order_query.py
 ```
 
-**Example interaction:**
+Pedirá un número de pedido (por ejemplo, 12345, 12346) y devolverá el estado actual con información de envío.
+
+**Ejemplo de interacción:**
 ```
-🌿 ECOMARKET - RETURN POLICY QUERY 🌿
-Enter product name: Water Bottle
+ECOMARKET - CONSULTA DE ESTADO DE PEDIDO
+Ingresa el número de pedido (ej. 12345): 12345
 
-🔍 Checking return policy...
+Buscando tu pedido...
 
-AI RESPONSE:
-Good news - the Stainless Steel Water Bottle can be returned!
-
-Return period: 30 days from purchase
-Condition: Must be unused and in original packaging
-
-Here's how to return it:
-1. Email support@ecomarket.com with your order number
-2. We'll send a prepaid shipping label (1-2 business days)
-3. Pack the product securely in original packaging
-4. Ship it using the label we provide
-5. Refund processed within 5-7 days after we receive it
+RESPUESTA:
+¡Hola! Encontré tu pedido #12345. Actualmente está en tránsito
+y debería llegar el 20 de abril de 2026.
 ```
 
----
-
-## How It Works
-
-### Order Query Flow
-
-1. Script reads the prompt template from `prompts/order_query_prompt.txt`
-2. Loads order database from `data/orders.json`
-3. Injects the data into the prompt (replaces `{orders_database}` and `{order_number}`)
-4. Sends complete prompt to Gemini API
-5. Returns natural language response
-
-### Return Query Flow
-
-1. Script reads the prompt template from `prompts/return_query_prompt.txt`
-2. Loads return policies from `data/return_policies.json`
-3. Injects the data into the prompt (replaces `{return_policies_database}` and `{product_name}`)
-4. Sends complete prompt to Gemini API
-5. Returns natural language response
-
-### Why Separate Prompt Files?
-
-Prompts are stored as separate `.txt` files (not hardcoded in Python) because:
-- You can update prompts without touching code
-- Version control shows exactly what changed in the prompt
-- Easy to A/B test different approaches
-- Non-technical team members can improve the prompts
-
----
-
-## Test Data
-
-### Orders (data/orders.json)
-
-10 sample orders with different statuses:
-
-| Order # | Status | Description |
-|---------|--------|-------------|
-| 12345 | In transit | Standard order tracking |
-| 12346 | Delayed | Tests empathy and apology |
-| 12347 | Delivered | Confirmation message |
-| 12348 | Cancelled | Refund information |
-| 12349 | Processing | Early order stage |
-| 12350 | In transit | Alternative scenario |
-
-### Products (data/return_policies.json)
-
-14 products with different return policies:
-
-**Returnable (30 days):**
-- Stainless Steel Water Bottle
-- Reusable Shopping Bags  
-- Solar Phone Charger
-- Bamboo Cutlery Set
-- Glass Food Containers
-
-**Non-returnable:**
-- Bamboo Toothbrush Set (personal hygiene)
-- Organic Snack Box (perishable food)
-- Reusable Menstrual Cup (intimate product)
-
----
-
-## Customizing
-
-### Editing Prompts
-
-You can modify the AI's behavior by editing the prompt files:
+### Consulta de Política de Devolución
 
 ```bash
-nano prompts/order_query_prompt.txt
-nano prompts/return_query_prompt.txt
+python scripts/return_query.py
 ```
 
-Changes take effect immediately - just run the script again. No code changes or restarts needed.
+Pedirá el nombre de un producto y dirá si puede devolverse, en cuántos días y bajo qué condiciones.
 
-**Prompt placeholders:**
-- `{orders_database}` → Gets replaced with JSON order data
-- `{order_number}` → Gets replaced with user's input
-- `{return_policies_database}` → Gets replaced with JSON policy data
-- `{product_name}` → Gets replaced with user's input
+**Ejemplo de interacción:**
+```
+ECOMARKET - CONSULTA DE POLÍTICA DE DEVOLUCIÓN
+Ingresa el nombre del producto: Botella de bambú
 
-### Adding Test Data
+Verificando política de devolución...
 
-Edit the JSON files to add more test cases:
-- `data/orders.json` - Add more orders with different statuses
-- `data/return_policies.json` - Add more products and policies
-
----
-
-## Model Configuration
-
-Both scripts automatically detect the best available Gemini model:
-- `gemini-2.5-flash` (newest, preferred)
-- `gemini-1.5-flash` (fallback)
-- `gemini-pro` (older fallback)
-
-**Settings:**
-- **Temperature:** 0.7
-  - Balances consistency with natural variety
-  - High enough to sound human, low enough to stay factual
-- **Max Tokens:** 500-600
-  - Enough for detailed customer service responses
-  - Not so high that responses become verbose
+RESPUESTA:
+Buenas noticias: la botella de agua reutilizable de bambú puede devolverse
+dentro de los 30 días si no ha sido usada y está en su empaque original.
+```
 
 ---
 
-## API Rate Limits (Free Tier)
+## Taller 2: Sistema RAG
 
-Google Gemini's free tier is generous:
-- 60 requests per minute
-- 1,500 requests per day  
-- 1 million requests per month
+El sistema RAG funciona en tres pasos: indexar, consultar y evaluar.
 
-This is plenty for testing, academic projects, and small-scale deployments.
+### Paso 1: Construir la Base de Conocimiento
+
+Antes de hacer consultas, hay que indexar los documentos en ChromaDB. Esto se hace una sola vez (o cada vez que cambien los documentos):
+
+```bash
+python scripts/build_knowledge_base.py
+```
+
+Este script:
+1. Carga los documentos de la carpeta `data/` (FAQs, devoluciones, catálogo, envíos)
+2. Aplica chunking específico según el tipo de documento
+3. Genera embeddings con un modelo multilingüe
+4. Almacena todo en ChromaDB
+
+**Primera vez:** Descargará el modelo de embeddings (~500MB), lo cual puede tardar varios minutos.
+
+**Veces siguientes:** Solo regenera la base de conocimiento, en unos 30 segundos.
+
+### Paso 2: Consultar el Sistema RAG
+
+```bash
+python scripts/rag_query.py
+```
+
+Abre un prompt interactivo donde puedes hacer preguntas en español. Por ejemplo:
+
+```
+Tu pregunta: ¿Cuánto cuesta el envío a Bogotá?
+
+[Buscando información relevante...]
+
+RESPUESTA:
+El envío estándar a Bogotá cuesta $8.000 COP y tarda entre 2 y 3 días
+hábiles. También hay opción de envío express por $15.000 COP que llega
+en 1 día hábil. Si tu compra supera los $150.000 COP, el envío estándar
+es gratis.
+
+¿Hay algo más en lo que pueda ayudarte?
+```
+
+Para salir del modo interactivo, escribe `salir` (o `exit` / `quit`).
+
+### Paso 3: Evaluar el Sistema
+
+```bash
+python scripts/evaluate_rag.py
+```
+
+Este script ejecuta 25 preguntas de prueba (definidas en `evaluation/test_questions.json`) y mide:
+
+- **Calidad del retrieval:** ¿Está recuperando los documentos correctos?
+- **Manejo de fallback:** ¿Reconoce cuándo no tiene información?
+- **Tiempo de respuesta:** ¿Cuánto tarda en promedio?
+
+Los resultados se guardan en `evaluation/results.json`.
 
 ---
 
-## Troubleshooting
+## Preguntas que Puede Responder el Sistema RAG
 
-### Error: "GOOGLE_API_KEY not found in .env file"
+### Envíos
 
-**Causes:**
-- `.env` file doesn't exist
-- `.env` file is empty or incorrectly formatted
-- You forgot to add your API key
+- ¿Cuánto cuesta el envío a Bogotá?
+- ¿Cuánto tarda un envío a Medellín?
+- ¿Cuánto tarda el envío express a Cali?
+- ¿Qué transportadora usan para los envíos?
+- ¿Hacen envíos a otros países?
+- ¿Hay envío gratis? ¿Desde qué monto?
+- ¿Hacen envíos a municipios pequeños?
+- ¿Qué pasa si no hay nadie para recibir el pedido?
+- ¿Puedo cambiar la dirección de envío después de hacer el pedido?
+- ¿Cuándo no hacen despachos?
 
-**Solutions:**
-1. Check that `.env` exists: `ls -a` (you should see `.env`)
-2. Check the file content: `cat .env`
-3. It should look like: `GOOGLE_API_KEY=AIzaSyC_your_actual_key_here`
-4. No spaces around the `=` sign
-5. Make sure you copied your actual key from Google AI Studio
+### Devoluciones
 
-### Error: "Could not find a compatible Gemini model"
+- ¿Puedo devolver el champú sólido?
+- ¿Puedo devolver la botella de bambú?
+- ¿Puedo devolver el cepillo de dientes de bambú?
+- ¿Cuánto tiempo tengo para devolver un producto?
+- ¿Quién paga el envío de la devolución?
+- ¿Cuáles productos no se pueden devolver?
 
-**Solutions:**
-1. Verify your API key is correct
-2. Check your internet connection
-3. Try regenerating your API key at [Google AI Studio](https://makersuite.google.com/app/apikey)
+### Productos
 
-### Virtual Environment Issues
+- ¿Cuánto cuesta el panel solar portátil?
+- ¿En qué fragancias viene el champú sólido?
+- ¿En qué fragancias viene el jabón natural?
+- ¿Qué características tiene la botella de bambú?
+- ¿De qué material está hecha la bolsa tote?
+- ¿El compostador funciona para apartamentos?
+- ¿Qué garantía tiene el panel solar?
+- ¿Cuántos litros filtra el filtro de carbón activado?
+- ¿Los recipientes de vidrio son aptos para microondas?
+- ¿En qué colores vienen las toallas de bambú?
+- ¿Qué certificaciones tienen sus productos?
 
-**To deactivate:**
+### Cuenta y Pagos
+
+- ¿Cómo creo una cuenta en EcoMarket?
+- ¿Cómo recupero mi contraseña?
+- ¿Cómo cambio mi dirección de envío?
+- ¿Qué métodos de pago aceptan?
+- ¿Es seguro pagar en EcoMarket?
+- ¿Puedo pagar en cuotas?
+
+### Pedidos
+
+- ¿Cómo hago seguimiento a mi pedido?
+- ¿Puedo modificar mi pedido después de realizarlo?
+- ¿Puedo cancelar mi pedido?
+
+### Sostenibilidad y Soporte
+
+- ¿Sus productos son realmente sostenibles?
+- ¿Qué hago si recibo un producto defectuoso?
+- ¿Tienen tienda física?
+- ¿Tienen programa de reciclaje?
+- ¿Qué tipo de empaque usan?
+- ¿Cuál es el horario de atención?
+- ¿Cómo puedo contactarlos?
+
+Para preguntas fuera del alcance del sistema (recetas, deportes, productos que no vende EcoMarket, etc.), el sistema activa un mensaje de fallback que sugiere alternativas.
+
+---
+
+## Documentación Detallada
+
+### Taller 1
+- [docs/Taller1/FASE1.md](docs/Taller1/FASE1.md) — Por qué Google Gemini Pro
+- [docs/Taller1/FASE2.md](docs/Taller1/FASE2.md) — Análisis crítico del sistema básico
+
+### Taller 2 (Sistema RAG)
+- [docs/Taller2/seleccion_componentes.md](docs/Taller2/seleccion_componentes.md) — Selección del modelo de embeddings y base de datos vectorial
+- [docs/Taller2/base_conocimiento.md](docs/Taller2/base_conocimiento.md) — Construcción de la base de conocimiento y estrategias de chunking
+- [docs/Taller2/implementacion_integracion.md](docs/Taller2/implementacion_integracion.md) — Implementación, integración del código, evaluación y limitaciones
+
+---
+
+## Stack Tecnológico
+
+| Componente | Tecnología | Costo |
+|------------|-----------|-------|
+| LLM | Google Gemini 2.5 Flash | Gratis |
+| Modelo de embeddings | sentence-transformers/paraphrase-multilingual-mpnet-base-v2 | Gratis (corre local) |
+| Base de datos vectorial | ChromaDB | Gratis |
+| Framework | LangChain | Gratis |
+| Lenguaje | Python 3.9+ | Gratis |
+
+Todo el stack es gratuito y corre localmente. No se requiere infraestructura ni servicios pagos.
+
+---
+
+## Solución de Problemas
+
+### "GOOGLE_API_KEY not found"
+
+Verifica que tienes el archivo `.env` con tu API key:
+
+```bash
+cat .env  # Debería mostrar GOOGLE_API_KEY=AIza...
+```
+
+Si no existe, créalo: `cp .env.example .env` y edítalo.
+
+### "La base de conocimiento no existe"
+
+Si ejecutas `rag_query.py` sin haber indexado primero, obtendrás este error. Solución:
+
+```bash
+python scripts/build_knowledge_base.py
+```
+
+### El modelo de embeddings tarda mucho en descargar
+
+Esto es normal en la primera ejecución. El modelo pesa ~500MB. Las ejecuciones siguientes usan la caché local.
+
+### Errores al instalar dependencias
+
+Si tienes problemas instalando `sentence-transformers` o `chromadb`, verifica que tienes Python 3.9 o superior:
+
+```bash
+python --version
+```
+
+### Problemas con el Entorno Virtual
+
+**Para desactivar:**
 ```bash
 deactivate
 ```
 
-**To completely reset:**
+**Para reiniciar completamente:**
 ```bash
-deactivate  # if currently active
+deactivate  # si está activo
 rm -rf venv
 python3 -m venv venv
-source venv/bin/activate  # or venv\Scripts\activate on Windows
-pip install -r requirements.txt
-```
-
-### Module Import Errors
-
-Make sure your virtual environment is activated:
-```bash
-# You should see (venv) in your prompt
-# If not:
-source venv/bin/activate  # macOS/Linux
-venv\Scripts\activate     # Windows
-```
-
-Then reinstall dependencies:
-```bash
+source venv/bin/activate  # o venv\Scripts\activate en Windows
 pip install -r requirements.txt
 ```
 
 ---
 
-## Documentation
+## Al Terminar
 
-### Phase 1: Model Selection (docs/PHASE1.md)
-Why Google Gemini Pro was chosen:
-- Cost comparison (free vs $30-450/month for alternatives)
-- Quality assessment for customer service use cases
-- Setup simplicity and speed
-- Scalability considerations
+Desactiva el entorno virtual:
 
-### Phase 2: Critical Analysis (docs/PHASE2.md)
-Honest evaluation of the system:
-- **What works:** 24/7 availability, consistency, zero marginal cost
-- **What doesn't:** Complex emotional situations, long conversations
-- **Ethical risks:** Hallucinations, bias, privacy, job displacement, transparency
-- Concrete mitigation strategies for each risk
-
----
-
-## Project Context
-
-This project demonstrates:
-
-1. **Model Selection Methodology**
-   - Systematic comparison of available models
-   - Cost-benefit analysis
-   - Quality vs price tradeoffs
-
-2. **Prompt Engineering**
-   - External prompt files (not hardcoded)
-   - Handling edge cases (delays, cancellations, not found)
-   - Tone control (empathetic vs professional)
-
-3. **Responsible AI**
-   - Identifying potential harms
-   - Designing concrete mitigations
-   - Monitoring strategies
-
-**Goal:** Automate 80% of repetitive queries while escalating complex cases to humans.
-
----
-
-## When You're Done
-
-Deactivate the virtual environment:
 ```bash
 deactivate
 ```
 
-Next time you work on the project:
+La próxima vez que trabajes en el proyecto:
+
 ```bash
 cd ai-workshop-ecomarket
 source venv/bin/activate  # macOS/Linux
-# or
+# o
 venv\Scripts\activate     # Windows
 ```
