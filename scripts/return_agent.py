@@ -144,6 +144,7 @@ def build_return_agent(model_name: str = DEFAULT_MODEL):
         model=model_name,
         temperature=0.2,
         max_tokens=800,
+        thinking_budget=0,
     )
     return create_agent(
         model=llm,
