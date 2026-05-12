@@ -1,0 +1,60 @@
+{
+  "description": "Test cases for the EcoMarket customer-service router and return agent.",
+  "cases": [
+    {
+      "id": "agent_001",
+      "category": "return_approved",
+      "message": "Quiero devolver la botella de bambu del pedido 12345",
+      "expected_route": "return_agent",
+      "expected_tools": [
+        "verificar_elegibilidad_devolucion_tool",
+        "generar_etiqueta_devolucion_tool",
+        "registrar_solicitud_devolucion_tool"
+      ],
+      "expected_label_generated": true
+    },
+    {
+      "id": "agent_002",
+      "category": "return_rejected_policy",
+      "message": "Quiero devolver el champu solido del pedido 12347",
+      "expected_route": "return_agent",
+      "expected_tools": [
+        "verificar_elegibilidad_devolucion_tool",
+        "registrar_solicitud_devolucion_tool"
+      ],
+      "expected_error_code": "PRODUCT_NOT_RETURNABLE"
+    },
+    {
+      "id": "agent_003",
+      "category": "return_rejected_cancelled_order",
+      "message": "Quiero devolver el panel solar del pedido 12351",
+      "expected_route": "return_agent",
+      "expected_tools": [
+        "verificar_elegibilidad_devolucion_tool",
+        "registrar_solicitud_devolucion_tool"
+      ],
+      "expected_error_code": "ORDER_CANCELLED"
+    },
+    {
+      "id": "agent_004",
+      "category": "missing_data",
+      "message": "Quiero hacer una devolucion",
+      "expected_route": "return_agent",
+      "expected_tools": []
+    },
+    {
+      "id": "agent_005",
+      "category": "return_policy_question",
+      "message": "Puedo devolver un cepillo de bambu?",
+      "expected_route": "rag",
+      "expected_tools": []
+    },
+    {
+      "id": "agent_006",
+      "category": "shipping_question",
+      "message": "Cuanto cuesta el envio a Medellin?",
+      "expected_route": "rag",
+      "expected_tools": []
+    }
+  ]
+}
