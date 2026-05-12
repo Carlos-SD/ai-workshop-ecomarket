@@ -15,6 +15,7 @@ from typing import Any, Dict, List
 
 from langchain_google_genai import ChatGoogleGenerativeAI
 
+from langsmith_config import configure_langsmith
 from rag_query import (
     load_environment as load_rag_environment,
     load_prompt_template,
@@ -130,6 +131,7 @@ def classify_customer_intent(message: str) -> Dict[str, Any]:
 
 def _run_rag_route(message: str, model_name: str = DEFAULT_MODEL) -> Dict[str, Any]:
     """Run the existing RAG system and return serializable metadata."""
+    configure_langsmith()
     load_rag_environment()
     vectorstore = load_vectorstore()
     prompt_template = load_prompt_template()
@@ -174,6 +176,7 @@ def handle_customer_message(message: str, model_name: str = DEFAULT_MODEL) -> Di
     Returns:
         A dictionary containing the selected route, answer, and route metadata.
     """
+    langsmith_status = configure_langsmith()
     classification = classify_customer_intent(message)
 
     if classification["route"] == "return_agent":
@@ -182,6 +185,7 @@ def handle_customer_message(message: str, model_name: str = DEFAULT_MODEL) -> Di
         result = _run_rag_route(message, model_name=model_name)
 
     result["classification"] = classification
+    result["langsmith"] = langsmith_status
     return result
 
 

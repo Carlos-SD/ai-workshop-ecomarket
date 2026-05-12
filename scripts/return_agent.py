@@ -20,6 +20,7 @@ from langchain_core.messages import AIMessage, BaseMessage, HumanMessage, ToolMe
 from langchain_core.tools import tool
 from langchain_google_genai import ChatGoogleGenerativeAI
 
+from langsmith_config import configure_langsmith
 from return_tools import (
     consultar_pedido,
     generar_etiqueta_devolucion,
@@ -36,6 +37,7 @@ DEFAULT_MODEL = "gemini-2.5-flash"
 def load_environment() -> str:
     """Load environment variables and validate the Gemini API key."""
     load_dotenv()
+    configure_langsmith()
     api_key = os.getenv("GOOGLE_API_KEY")
 
     if not api_key:
