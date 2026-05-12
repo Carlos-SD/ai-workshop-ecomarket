@@ -1,9 +1,10 @@
 # EcoMarket - Atención al Cliente con IA
 
-Sistema de atención al cliente con inteligencia artificial para EcoMarket, empresa de productos sostenibles. El proyecto cubre dos talleres:
+Sistema de atención al cliente con inteligencia artificial para EcoMarket, empresa de productos sostenibles. El proyecto cubre dos talleres y un proyecto final:
 
 - **Taller 1:** Sistema básico con prompts directos para consultas de estado de pedidos y política de devoluciones.
 - **Taller 2:** Sistema RAG (Generación Aumentada por Recuperación) que extiende las capacidades del modelo para responder cualquier consulta basándose en una base de conocimiento de la empresa.
+- **Proyecto Final:** Agente de IA para gestionar devoluciones, con router RAG/agente, tools, LangSmith e interfaz Streamlit.
 
 ---
 
@@ -21,22 +22,36 @@ ai-workshop-ecomarket/
 │   ├── Taller1/
 │   │   ├── FASE1.md                   # Selección del modelo de IA
 │   │   └── FASE2.md                   # Análisis crítico del sistema básico
-│   └── Taller2/
-│       ├── seleccion_componentes.md   # Selección de embeddings y base vectorial
-│       ├── base_conocimiento.md       # Construcción de la base de conocimiento y chunking
-│       └── implementacion_integracion.md  # Implementación, evaluación y limitaciones
+│   ├── Taller2/
+│   │   ├── seleccion_componentes.md   # Selección de embeddings y base vectorial
+│   │   ├── base_conocimiento.md       # Construcción de la base de conocimiento y chunking
+│   │   └── implementacion_integracion.md  # Implementación, evaluación y limitaciones
+│   └── ProyectoFinal/
+│       ├── fase1_arquitectura_agente.md
+│       ├── fase2_implementacion_conexion.md
+│       ├── fase3_analisis_critico.md
+│       ├── fase4_despliegue.md
+│       └── langsmith_setup.md
 ├── prompts/
 │   ├── order_query_prompt.txt         # Prompt para consultas de pedidos
 │   ├── return_query_prompt.txt        # Prompt para consultas de devoluciones
-│   └── rag_query_prompt.txt           # Prompt para el sistema RAG
+│   ├── rag_query_prompt.txt           # Prompt para el sistema RAG
+│   └── return_agent_prompt.txt        # Prompt del agente de devoluciones
 ├── scripts/
 │   ├── order_query.py                 # Consulta de estado de pedido (Taller 1)
 │   ├── return_query.py                # Consulta de política de devolución (Taller 1)
 │   ├── build_knowledge_base.py        # Construye la base de conocimiento RAG (Taller 2)
 │   ├── rag_query.py                   # Sistema RAG principal (Taller 2)
-│   └── evaluate_rag.py                # Evaluación del sistema (Taller 2)
+│   ├── evaluate_rag.py                # Evaluación del sistema (Taller 2)
+│   ├── return_tools.py                # Tools determinísticas de devoluciones
+│   ├── return_agent.py                # Agente LangChain de devoluciones
+│   ├── customer_service_router.py     # Router entre RAG y agente
+│   ├── langsmith_config.py            # Configuración opcional de LangSmith
+│   └── evaluate_agent.py              # Evaluación del router/agente
 ├── evaluation/
-│   └── test_questions.json            # Preguntas de prueba para evaluación
+│   ├── test_questions.json            # Preguntas de prueba para RAG
+│   └── agent_test_cases.json          # Casos de prueba para router/agente
+├── app.py                             # Interfaz Streamlit del proyecto final
 ├── chroma_db/                         # Base vectorial (generada al indexar)
 ├── logs/                              # Registro de preguntas sin respuesta
 ├── .env                               # Tu API key (no subir al repositorio)
@@ -108,6 +123,14 @@ cp .env.example .env
 Luego edita `.env` y reemplaza el placeholder con tu clave real:
 ```
 GOOGLE_API_KEY=tu-clave-api-aquí
+```
+
+Opcionalmente, para ver trazas en LangSmith:
+
+```
+LANGSMITH_TRACING=true
+LANGSMITH_API_KEY=tu-clave-langsmith-aquí
+LANGSMITH_PROJECT=ecomarket-final-agent
 ```
 
 **Opción B: Crear `.env` manualmente**
@@ -222,6 +245,96 @@ Este script ejecuta 25 preguntas de prueba (definidas en `evaluation/test_questi
 - **Tiempo de respuesta:** ¿Cuánto tarda en promedio?
 
 Los resultados se guardan en `evaluation/results.json`.
+
+---
+
+## Proyecto Final: Agente de Devoluciones
+
+El proyecto final agrega un router de atención al cliente. Las preguntas informativas siguen usando el RAG del Taller 2, mientras que las solicitudes accionables de devolución se envían a un agente LangChain.
+
+### Probar las tools determinísticas
+
+```bash
+python scripts/return_tools.py eligibility --order-id 12345 --product botella de bambu
+python scripts/return_tools.py label --order-id 12345 --product botella de bambu
+```
+
+### Probar el agente directamente
+
+```bash
+python scripts/return_agent.py \
+  --message "Quiero devolver la botella de bambu del pedido 12345" \
+  --json
+```
+
+### Probar el router RAG/agente
+
+```bash
+python scripts/customer_service_router.py \
+  --message "Quiero devolver la botella de bambu del pedido 12345" \
+  --json
+```
+
+Para revisar solo la ruta sin llamar a Gemini:
+
+```bash
+python scripts/customer_service_router.py \
+  --message "Cuanto cuesta el envio a Medellin?" \
+  --classify-only
+```
+
+### Evaluar el router/agente
+
+Modo seguro, sin llamadas al modelo:
+
+```bash
+python scripts/evaluate_agent.py --no-save
+```
+
+Modo completo, con Gemini:
+
+```bash
+python scripts/evaluate_agent.py --live
+```
+
+### Ver trazas en LangSmith
+
+Configura `.env`:
+
+```env
+LANGSMITH_TRACING=true
+LANGSMITH_API_KEY=tu-clave-langsmith-aquí
+LANGSMITH_PROJECT=ecomarket-final-agent
+```
+
+Luego ejecuta el router o el agente. Las trazas aparecerán en el proyecto `ecomarket-final-agent`.
+
+Más detalle en `docs/ProyectoFinal/langsmith_setup.md`.
+
+### Ejecutar la interfaz web
+
+```bash
+streamlit run app.py
+```
+
+Con el entorno virtual del proyecto:
+
+```bash
+venv/bin/streamlit run app.py
+```
+
+URL local esperada:
+
+```text
+http://localhost:8501
+```
+
+Prompts recomendados para la sustentación:
+
+- `Quiero devolver la botella de bambu del pedido 12345`
+- `Quiero devolver el champu solido del pedido 12347`
+- `Quiero devolver el panel solar del pedido 12351`
+- `Cuanto cuesta el envio a Medellin?`
 
 ---
 
