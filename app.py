@@ -48,6 +48,9 @@ def _render_result_details(result: Dict[str, Any]) -> None:
     cols[1].metric("Tools", len(tool_names))
     cols[2].metric("LangSmith", "Activo" if langsmith.get("enabled") else "Inactivo")
 
+    if result.get("error"):
+        st.warning(f"Error controlado: {result.get('error_type', 'runtime_error')}")
+
     if tool_names:
         st.write("Tools llamadas:")
         st.code("\n".join(tool_names), language="text")
@@ -59,6 +62,9 @@ def _render_result_details(result: Dict[str, Any]) -> None:
             "tool_trace": result.get("tool_trace", []),
             "fallback_used": result.get("fallback_used"),
             "best_score": result.get("best_score"),
+            "error": result.get("error"),
+            "error_type": result.get("error_type"),
+            "technical_detail": result.get("technical_detail"),
         })
 
 

@@ -165,6 +165,46 @@ def _run_rag_route(message: str, model_name: str = DEFAULT_MODEL) -> Dict[str, A
     }
 
 
+def _format_runtime_error(exc: Exception) -> Dict[str, str]:
+    """Build a user-facing error summary from a model or pipeline failure."""
+    detail = str(exc)
+    normalized = detail.lower()
+
+    if (
+        "429" in normalized
+        or "quota" in normalized
+        or "resource_exhausted" in normalized
+    ):
+        return {
+            "error_type": "model_quota_exceeded",
+            "answer": (
+                "No pude completar la solicitud porque el proveedor del modelo "
+                "rechazo la llamada por limite de cuota. Intentalo de nuevo "
+                "cuando se reinicie la cuota o usa otra API key/modelo."
+            ),
+            "technical_detail": detail,
+        }
+
+    if "google_api_key" in normalized:
+        return {
+            "error_type": "missing_api_key",
+            "answer": (
+                "No pude completar la solicitud porque falta configurar "
+                "GOOGLE_API_KEY en el archivo .env."
+            ),
+            "technical_detail": detail,
+        }
+
+    return {
+        "error_type": "runtime_error",
+        "answer": (
+            "No pude completar la solicitud por un error de ejecucion. "
+            "Revisa el detalle tecnico y el trace en LangSmith."
+        ),
+        "technical_detail": detail,
+    }
+
+
 def handle_customer_message(message: str, model_name: str = DEFAULT_MODEL) -> Dict[str, Any]:
     """
     Route a customer message to RAG or the return agent.
@@ -179,10 +219,21 @@ def handle_customer_message(message: str, model_name: str = DEFAULT_MODEL) -> Di
     langsmith_status = configure_langsmith()
     classification = classify_customer_intent(message)
 
-    if classification["route"] == "return_agent":
-        result = run_return_agent(message, model_name=model_name)
-    else:
-        result = _run_rag_route(message, model_name=model_name)
+    try:
+        if classification["route"] == "return_agent":
+            result = run_return_agent(message, model_name=model_name)
+        else:
+            result = _run_rag_route(message, model_name=model_name)
+    except Exception as exc:
+        error = _format_runtime_error(exc)
+        result = {
+            "route": classification["route"],
+            "answer": error["answer"],
+            "error": True,
+            "error_type": error["error_type"],
+            "technical_detail": error["technical_detail"],
+            "tool_trace": [],
+        }
 
     result["classification"] = classification
     result["langsmith"] = langsmith_status
