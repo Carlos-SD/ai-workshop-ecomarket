@@ -31,6 +31,7 @@ ai-workshop-ecomarket/
 │       ├── fase2_implementacion_conexion.md
 │       ├── fase3_analisis_critico.md
 │       ├── fase4_despliegue.md
+│       ├── demo_sustentacion.md
 │       └── langsmith_setup.md
 ├── prompts/
 │   ├── order_query_prompt.txt         # Prompt para consultas de pedidos
@@ -311,6 +312,12 @@ Luego ejecuta el router o el agente. Las trazas aparecerán en el proyecto `ecom
 
 Más detalle en `docs/ProyectoFinal/langsmith_setup.md`.
 
+Guion recomendado para la sustentación:
+
+```text
+docs/ProyectoFinal/demo_sustentacion.md
+```
+
 ### Ejecutar la interfaz web
 
 ```bash
@@ -415,6 +422,14 @@ Para preguntas fuera del alcance del sistema (recetas, deportes, productos que n
 - [docs/Taller2/seleccion_componentes.md](docs/Taller2/seleccion_componentes.md) — Selección del modelo de embeddings y base de datos vectorial
 - [docs/Taller2/base_conocimiento.md](docs/Taller2/base_conocimiento.md) — Construcción de la base de conocimiento y estrategias de chunking
 - [docs/Taller2/implementacion_integracion.md](docs/Taller2/implementacion_integracion.md) — Implementación, integración del código, evaluación y limitaciones
+
+### Proyecto Final
+- [docs/ProyectoFinal/fase1_arquitectura_agente.md](docs/ProyectoFinal/fase1_arquitectura_agente.md) — Arquitectura del agente y decisiones de diseño
+- [docs/ProyectoFinal/fase2_implementacion_conexion.md](docs/ProyectoFinal/fase2_implementacion_conexion.md) — Implementación y conexión RAG/agente
+- [docs/ProyectoFinal/fase3_analisis_critico.md](docs/ProyectoFinal/fase3_analisis_critico.md) — Observabilidad, evaluación y limitaciones
+- [docs/ProyectoFinal/fase4_despliegue.md](docs/ProyectoFinal/fase4_despliegue.md) — Despliegue local con Streamlit
+- [docs/ProyectoFinal/langsmith_setup.md](docs/ProyectoFinal/langsmith_setup.md) — Configuración de LangSmith
+- [docs/ProyectoFinal/demo_sustentacion.md](docs/ProyectoFinal/demo_sustentacion.md) — Guion de demo para la sustentación
 
 ---
 

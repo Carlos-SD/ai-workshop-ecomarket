@@ -196,16 +196,22 @@ Quiero hacer una devolucion.
 
 Resultado esperado: agente pide numero de pedido y producto.
 
-## Orden de trabajo pendiente
+## Estado de avance
 
-1. Implementar tools deterministicas.
-2. Probar tools manualmente.
-3. Implementar agente LangChain.
-4. Implementar router RAG/agente.
-5. Activar trazabilidad LangSmith.
-6. Crear interfaz Streamlit.
-7. Agregar evaluacion.
-8. Escribir documentacion final.
-9. Actualizar README.
-10. Verificar extremo a extremo.
+1. Implementar tools deterministicas. Completado.
+2. Probar tools manualmente. Completado.
+3. Implementar agente LangChain. Completado.
+4. Implementar router RAG/agente. Completado.
+5. Activar trazabilidad LangSmith. Completado.
+6. Crear interfaz Streamlit. Completado.
+7. Agregar evaluacion. Completado.
+8. Escribir documentacion final. Completado.
+9. Actualizar README. Completado.
+10. Verificar extremo a extremo. Completado parcialmente; los flujos live dependen de cuota disponible en Gemini.
 
+## Pendiente recomendado antes de entrega
+
+1. Ejecutar una demo live cuando Gemini tenga cuota disponible.
+2. Capturar evidencia visual de LangSmith con un caso exitoso y un caso fallido.
+3. Revisar el guion en `docs/ProyectoFinal/demo_sustentacion.md`.
+4. Confirmar que `.env` local tiene `LANGSMITH_TRACING=true` antes de la sustentacion.
