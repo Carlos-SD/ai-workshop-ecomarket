@@ -38,15 +38,18 @@ def _load_system_prompt() -> str:
     return path.read_text(encoding="utf-8")
 
 
-def build_agent(*, verbose: bool = False):
+def build_agent(*, verbose: bool = False, model: str | None = None):
     """Construct the agent (compiled LangGraph) with all tools wired up.
 
     `verbose` toggles LangGraph's debug mode (prints state transitions).
+    `model` overrides the GEMINI_MODEL env default — used by the Streamlit UI
+    to let the user switch models without restarting the server (useful when
+    one model hits the free-tier daily quota).
     """
     api_key = require_api_key()
 
     llm = ChatGoogleGenerativeAI(
-        model=GEMINI_MODEL,
+        model=model or GEMINI_MODEL,
         temperature=AGENT_TEMPERATURE,
         google_api_key=api_key,
     )
