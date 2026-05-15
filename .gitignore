@@ -38,6 +38,8 @@ pip-wheel-metadata/
 # Logs
 # =========================
 *.log
+logs/
+*.jsonl
 
 # =========================
 # Testing / coverage

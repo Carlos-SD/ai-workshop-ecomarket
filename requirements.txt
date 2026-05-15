@@ -1,2 +1,15 @@
-google-generativeai>=0.3.0
+# Core LLM access
+google-generativeai>=0.8.0
 python-dotenv>=1.0.0
+
+# Agent framework
+langchain>=0.3.0
+langchain-core>=0.3.0
+langchain-google-genai>=2.0.0
+pydantic>=2.0.0
+
+# UI (Phase 4)
+streamlit>=1.30.0
+
+# Dev / testing
+rich>=13.0.0          # nicer CLI output for eval script
